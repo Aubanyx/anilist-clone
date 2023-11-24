@@ -14,20 +14,20 @@ const GET_ANIMES = gql`
   }
 `;
 function App() {
-    const { loading, error, data } = useQuery(GET_ANIMES);
+  const { loading, error, data } = useQuery(GET_ANIMES);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
-      <div className="App">
-          <h1>Animes</h1>
-          <ul>
-              {data.Page.media.map((anime) => (
-                  <li key={anime.id}>{anime.title.romaji}</li>
-              ))}
-          </ul>
-      </div>
+    <div className="App">
+      <h1>Animes</h1>
+      <ul>
+        {data.Page.media.map((anime) => (
+          <li key={anime.id}>{anime.title.romaji}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
